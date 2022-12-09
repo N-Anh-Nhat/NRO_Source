@@ -1,0 +1,127 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+		<OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="RES" />
+      <Folder Include="Sources\Model\Effect" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="BouncyCastle.Crypto">
+        <HintPath>DLL\BouncyCastle.Crypto.dll</HintPath>
+      </Reference>
+      <Reference Include="Google.Protobuf">
+        <HintPath>DLL\Google.Protobuf.dll</HintPath>
+      </Reference>
+      <Reference Include="K4os.Compression.LZ4">
+        <HintPath>DLL\K4os.Compression.LZ4.dll</HintPath>
+      </Reference>
+      <Reference Include="K4os.Compression.LZ4.Streams">
+        <HintPath>DLL\K4os.Compression.LZ4.Streams.dll</HintPath>
+      </Reference>
+      <Reference Include="K4os.Hash.xxHash">
+        <HintPath>DLL\K4os.Hash.xxHash.dll</HintPath>
+      </Reference>
+      <Reference Include="Linq.Extras">
+        <HintPath>DLL\Linq.Extras.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Configuration">
+        <HintPath>DLL\Microsoft.Extensions.Configuration.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+        <HintPath>DLL\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Configuration.Binder">
+        <HintPath>DLL\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Configuration.FileExtensions">
+        <HintPath>DLL\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Configuration.Json">
+        <HintPath>DLL\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+        <HintPath>DLL\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.DependencyModel">
+        <HintPath>DLL\Microsoft.Extensions.DependencyModel.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.FileProviders.Abstractions">
+        <HintPath>DLL\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.FileProviders.Physical">
+        <HintPath>DLL\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.FileSystemGlobbing">
+        <HintPath>DLL\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Options">
+        <HintPath>DLL\Microsoft.Extensions.Options.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions">
+        <HintPath>DLL\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Primitives">
+        <HintPath>DLL\Microsoft.Extensions.Primitives.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Win32.SystemEvents">
+        <HintPath>DLL\Microsoft.Win32.SystemEvents.dll</HintPath>
+      </Reference>
+      <Reference Include="MySql.Data">
+        <HintPath>DLL\MySql.Data.dll</HintPath>
+      </Reference>
+      <Reference Include="Newtonsoft.Json">
+        <HintPath>DLL\Newtonsoft.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="Serilog">
+        <HintPath>DLL\Serilog.dll</HintPath>
+      </Reference>
+      <Reference Include="Serilog.Enrichers.Thread">
+        <HintPath>DLL\Serilog.Enrichers.Thread.dll</HintPath>
+      </Reference>
+      <Reference Include="Serilog.Settings.Configuration">
+        <HintPath>DLL\Serilog.Settings.Configuration.dll</HintPath>
+      </Reference>
+      <Reference Include="Serilog.Sinks.Console">
+        <HintPath>DLL\Serilog.Sinks.Console.dll</HintPath>
+      </Reference>
+      <Reference Include="Serilog.Sinks.File">
+        <HintPath>DLL\Serilog.Sinks.File.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Configuration.ConfigurationManager">
+        <HintPath>DLL\System.Configuration.ConfigurationManager.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Drawing.Common">
+        <HintPath>DLL\System.Drawing.Common.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.CompilerServices.Unsafe">
+        <HintPath>DLL\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Cryptography.ProtectedData">
+        <HintPath>DLL\System.Security.Cryptography.ProtectedData.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Security.Permissions">
+        <HintPath>DLL\System.Security.Permissions.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Encodings.Web">
+        <HintPath>DLL\System.Text.Encodings.Web.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Text.Json">
+        <HintPath>DLL\System.Text.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Windows.Extensions">
+        <HintPath>DLL\System.Windows.Extensions.dll</HintPath>
+      </Reference>
+      <Reference Include="Ubiety.Dns.Core">
+        <HintPath>DLL\Ubiety.Dns.Core.dll</HintPath>
+      </Reference>
+      <Reference Include="ZstdNet">
+        <HintPath>DLL\ZstdNet.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
