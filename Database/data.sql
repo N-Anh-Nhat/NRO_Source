@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 09, 2022 lúc 09:29 AM
+-- Thời gian đã tạo: Th12 12, 2022 lúc 10:05 AM
 -- Phiên bản máy phục vụ: 5.7.31
 -- Phiên bản PHP: 7.3.21
 
@@ -62,7 +62,9 @@ INSERT INTO `boss` (`id`, `type`, `name`, `hp`, `mp`, `stamina`, `skills`, `dama
 (11, 11, 'Cooler 02', 1600000000, 100000, 1000, '[{\"Id\":4,\"SkillId\":34,\"CoolDown\":0,\"Point\":7},\n{\"Id\":3,\"SkillId\":27,\"CoolDown\":0,\"Point\":7},\n{\"Id\":8,\"SkillId\":62,\"CoolDown\":0,\"Point\":7}]', 1000000, 50000, 2, 317, 'false'),
 (12, 12, 'Thỏ Phê Cỏ', 100, 10000, 1000, '[{\"Id\":18,\"SkillId\":120,\"CoolDown\":0,\"Point\":7}]', 1, 1, 0, 403, 'true'),
 (13, 13, 'Thỏ Đại Ca', 100000000, 10000, 1000, '[{\"Id\":17,\"SkillId\":113,\"CoolDown\":0,\"Point\":7}]', 200000, 20000, 1, 403, 'true'),
-(14, 14, 'Chilled', 1000000000, 10000, 1000, '[{\"Id\":17,\"SkillId\":113,\"CoolDown\":0,\"Point\":7}]', 1500000, 100000, 10, 1024, 'false');
+(14, 14, 'Chilled', 1000000000, 10000, 1000, '[{\"Id\":17,\"SkillId\":113,\"CoolDown\":0,\"Point\":7}]', 1500000, 100000, 10, 1024, 'false'),
+(15, 15, 'Bill', 1000000000, 100000, 1000, '[{\"Id\":4,\"SkillId\":34,\"CoolDown\":0,\"Point\":7},\r\n{\"Id\":5,\"SkillId\":41,\"CoolDown\":0,\"Point\":7},\r\n{\"Id\":8,\"SkillId\":62,\"CoolDown\":0,\"Point\":7}]', 200000, 50000, 4, 508, 'false'),
+(16, 16, 'Whis', 1000000000, 100000, 1000, '[{\"Id\":4,\"SkillId\":34,\"CoolDown\":0,\"Point\":7},\r\n{\"Id\":5,\"SkillId\":41,\"CoolDown\":0,\"Point\":7},\r\n{\"Id\":8,\"SkillId\":62,\"CoolDown\":0,\"Point\":7}]', 200000, 50000, 4, 505, 'false');
 
 -- --------------------------------------------------------
 
