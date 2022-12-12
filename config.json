@@ -14,27 +14,27 @@
     "event-trungthu": false,
     "cache": {
       "isDir": false,
-      "nr_dart": "RES/cache/data/NR_dart",
-      "nr_arrow": "RES/cache/data/NR_arrow",
-      "nr_effect": "RES/cache/data/NR_effect",
-      "nr_image": "RES/cache/data/NR_image",
-      "nr_part": "RES/cache/data/NR_part",
-      "nr_skill": "RES/cache/data/NR_skill",
-      "nrskill": "RES/cache/data/NRskill",
-      "nrmap": "RES/cache/data/NRmap"
+      "nr_dart": "Res/cache/data/NR_dart",
+      "nr_arrow": "Res/cache/data/NR_arrow",
+      "nr_effect": "Res/cache/data/NR_effect",
+      "nr_image": "Res/cache/data/NR_image",
+      "nr_part": "Res/cache/data/NR_part",
+      "nr_skill": "Res/cache/data/NR_skill",
+      "nrskill": "Res/cache/data/NRskill",
+      "nrmap": "Res/cache/data/NRmap"
     },
     "resource": {
-      "map": "RES/map/Data/map_{0}",
-      "monster": "RES/monster/x{0}/DataMob_{1}_{2}",
-      "tile": "RES/cache/mess/mess_-82",
-      "new-bg": "RES/cache/mess/mess_newBG",
-      "download": "RES/downloading/x{0}",
-      "background": "RES/background/x{0}/ImgBG_{1}.png",
-      "icon": "RES/icon/x{0}/{1}.png",
-      "mount": "RES/mount/x{0}/{1}.png",
+      "map": "Res/map/Data/map_{0}",
+      "monster": "Res/monster/x{0}/DataMob_{1}_{2}",
+      "tile": "Res/cache/mess/mess_-82",
+      "new-bg": "Res/cache/mess/mess_newBG",
+      "download": "Res/downloading/x{0}",
+      "background": "Res/background/x{0}/ImgBG_{1}.png",
+      "icon": "Res/icon/x{0}/{1}.png",
+      "mount": "Res/mount/x{0}/{1}.png",
       "effect": {
-        "data": "RES/effect/x{0}/data/DataEffect_{1}",
-        "image": "RES/effect/x{0}/img/ImgEffect_{1}.png"
+        "data": "Res/effect/x{0}/data/DataEffect_{1}",
+        "image": "Res/effect/x{0}/img/ImgEffect_{1}.png"
       }
     }
   },

@@ -817,8 +817,8 @@ namespace NRO_Server.Application.Main.Menu
                         {
                             List<int> setHuyDiet = new List<int> { 650, 651, 656, 657, 658};
                             var saophale = new OptionItem() { Id = 107, Param = 9 }; // 9 sao
-                            var setsgk = new OptionItem() { Id = 133, Param = 0 }; // set kkr
-                            var setsgkop = new OptionItem() { Id = 136, Param = 0 }; // set kkr
+                            var setkkr = new OptionItem() { Id = 133, Param = 0 }; // set kkr
+                            var setkkrop = new OptionItem() { Id = 136, Param = 0 }; // set kkr
                             foreach (var item in setHuyDiet)
                             {
                                
@@ -827,16 +827,16 @@ namespace NRO_Server.Application.Main.Menu
                                     var nhanHD = ItemCache.GetItemDefault(656);
                                     nhanHD.Quantity = 1;                                 
                                     nhanHD.Options.Add(saophale);
-                                    nhanHD.Options.Add(setsgk);
-                                    nhanHD.Options.Add(setsgkop);
+                                    nhanHD.Options.Add(setkkr);
+                                    nhanHD.Options.Add(setkkrop);
                                     character.CharacterHandler.AddItemToBag(true, nhanHD, "3 ong gia");
                                     character.CharacterHandler.SendMessage(Service.SendBag(character));
                                 }
                                 var itemAdd = ItemCache.GetItemDefault((short)(item + character.InfoChar.Gender * 2));
                                 itemAdd.Quantity = 1;
                                 itemAdd.Options.Add(saophale);
-                                itemAdd.Options.Add(setsgk);
-                                itemAdd.Options.Add(setsgkop);
+                                itemAdd.Options.Add(setkkr);
+                                itemAdd.Options.Add(setkkrop);
                                 character.CharacterHandler.AddItemToBag(true, itemAdd, "3 ong gia");
                                 character.CharacterHandler.SendMessage(Service.SendBag(character));
                             }
@@ -853,6 +853,8 @@ namespace NRO_Server.Application.Main.Menu
                             var setnappaop = new OptionItem() { Id = 138, Param = 0 }; // set nappa
                             var setcadic = new OptionItem() { Id = 134, Param = 0 }; // set cadic
                             var setcadicop = new OptionItem() { Id = 137, Param = 0 }; // set cadic
+                            var setkkr = new OptionItem() { Id = 133, Param = 0 }; // set kkr
+                            var setkkrop = new OptionItem() { Id = 136, Param = 0 }; // set kkr
                             foreach (var item in setHuyDiet)
                             {
                                
@@ -867,6 +869,8 @@ namespace NRO_Server.Application.Main.Menu
                                     nhanHD.Options.Add(setnappaop);
                                     nhanHD.Options.Add(setcadic);
                                     nhanHD.Options.Add(setcadicop);
+                                    nhanHD.Options.Add(setkkr);
+                                    nhanHD.Options.Add(setkkrop);
                                     character.CharacterHandler.AddItemToBag(true, nhanHD, "3 ong gia");
                                     character.CharacterHandler.SendMessage(Service.SendBag(character));
                                 }
@@ -879,8 +883,11 @@ namespace NRO_Server.Application.Main.Menu
                                 itemAdd.Options.Add(setnappaop);
                                 itemAdd.Options.Add(setcadic);
                                 itemAdd.Options.Add(setcadicop);
+                                itemAdd.Options.Add(setkkr);
+                                itemAdd.Options.Add(setkkrop);
                                 character.CharacterHandler.AddItemToBag(true, itemAdd, "3 ong gia");
                                 character.CharacterHandler.SendMessage(Service.SendBag(character));
+                                character.CharacterHandler.SendMessage(Service.OpenUiSay(npcId, "Phá game ít thôi"));
                             }
                                                        
                             break;

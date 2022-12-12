@@ -3626,6 +3626,14 @@ namespace NRO_Server.Application.Main
                                 boss.CharacterHandler.SetUpInfo();
                                 character.Zone.ZoneHandler.AddBoss(boss);
                             }
+                            else if (text.Contains("bbill"))
+                            {
+                                var charReal = (Character)character;
+                                var boss = new Boss();
+                                boss.CreateBoss(DataCache.BOSS_BILL_TYPE, charReal.InfoChar.X, charReal.InfoChar.Y);
+                                boss.CharacterHandler.SetUpInfo();
+                                character.Zone.ZoneHandler.AddBoss(boss);
+                            }
                             #endregion
 
                             #region Player Online

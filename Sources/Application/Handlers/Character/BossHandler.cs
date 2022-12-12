@@ -1030,6 +1030,52 @@ namespace NRO_Server.Application.Handlers.Character
                     }
                     break;
                 }
+                case 15://Bill
+                case 16://Whis
+                {
+                    var item = ItemCache.GetItemDefault(457);
+                        item.Quantity = 10;
+                    var itemMap = new ItemMap(playerKillId, item);
+                    itemMap.X = Boss.InfoChar.X;
+                    itemMap.Y = Boss.InfoChar.Y;
+                    Boss.Zone.ZoneHandler.LeaveItemMap(itemMap);
+
+                    var randomPercent = ServerUtils.RandomNumber(100);
+                    if (randomPercent < 10)
+                    {
+                        var itemDoHD = ItemCache.GetItemDefault(DataCache.ListDoHuyDiet[ServerUtils.RandomNumber(DataCache.ListDoHuyDiet.Count)]);
+                        var soSao = ServerUtils.RandomNumber(0, 5);
+                        if (soSao > 0)
+                        {
+                            itemDoHD.Options.Add(new OptionItem()
+                            {
+                                Id = 107,
+                                Param = soSao
+                            });
+                        }
+                        var itemMapHD = new ItemMap(playerKillId, itemDoHD);
+                        itemMapHD.X = Boss.InfoChar.X;
+                        itemMapHD.Y = Boss.InfoChar.Y;
+                        Boss.Zone.ZoneHandler.LeaveItemMap(itemMapHD);
+                    }
+                    else if (randomPercent < 40)
+                    {
+                        var itemDoHD = ItemCache.GetItemDefault(DataCache.ListDoHuyDiet[ServerUtils.RandomNumber(DataCache.ListDoHuyDiet.Count)]);
+                        var itemMapHD = new ItemMap(playerKillId, itemDoHD);
+                        itemMapHD.X = Boss.InfoChar.X;
+                        itemMapHD.Y = Boss.InfoChar.Y;
+                        Boss.Zone.ZoneHandler.LeaveItemMap(itemMapHD);
+                    }
+                    else
+                    {
+                        var ngocrongVip = ItemCache.GetItemDefault(DataCache.ListNgocRongVip[ServerUtils.RandomNumber(DataCache.ListNgocRongVip.Count)]);
+                        var itemMapNRV = new ItemMap(playerKillId, ngocrongVip);
+                        itemMapNRV.X = Boss.InfoChar.X;
+                        itemMapNRV.Y = Boss.InfoChar.Y;
+                        Boss.Zone.ZoneHandler.LeaveItemMap(itemMapNRV);
+                    }
+                    break;
+                }
             }
 
         }

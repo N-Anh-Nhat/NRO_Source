@@ -133,6 +133,27 @@ namespace NRO_Server.Application.Threading
         private static bool IsChilledNotify = false;
         private static long ChilledSpawnTimeDelay = 600000 + ServerUtils.CurrentTimeMillis();
         #endregion
+
+        #region Bill
+
+        private static List<int> BillMaps = new List<int> { 0, 7, 14 };
+        private static int CurrentBillMapId = 0;
+        private static int CurrentBillZoneId = 0;
+
+        private static Boss Billed = null;
+        private static Boss whis = null;
+
+        private static bool IsBillSpawn = false;
+        private static bool IsBillNotify = false;
+        private static int BillId = -1;
+        private static long BillSpawnTimeDelay = 500000 + ServerUtils.CurrentTimeMillis();
+
+        private static bool IsWhisSpawn = false;
+        private static bool IsWhisNotify = false;
+        private static int WhisId = -1;
+
+
+        #endregion
         public static BossRunTime Gi()
         {
             return Instance ??= new BossRunTime();
@@ -260,6 +281,25 @@ namespace NRO_Server.Application.Threading
                     IsChilledSpawn = false;
                     ChilledId = -1;
                     ChilledSpawnTimeDelay = 600000 + ServerUtils.CurrentTimeMillis();
+                }
+                else if (bossId == BillId && IsBillSpawn)
+                {
+                    Billed = null;
+                    IsBillSpawn = false;
+                    BillId = -1;
+                    BillSpawnTimeDelay = 600000 + ServerUtils.CurrentTimeMillis();
+                    if (!IsWhisSpawn)
+                    {
+                        SpawnAngelBoss(1);
+
+                    }
+                }
+                else if (bossId == WhisId && IsWhisSpawn)
+                {
+                    whis = null;
+                    IsWhisSpawn = false;
+                    WhisId = -1;
+                    BillSpawnTimeDelay = 500000 + ServerUtils.CurrentTimeMillis();
                 }
             }
             catch (Exception e)
@@ -606,42 +646,80 @@ namespace NRO_Server.Application.Threading
 
                         #region Chilled
 
-                        // if ((ChilledSpawnTimeDelay < ServerUtils.CurrentTimeMillis())) 
-                        // {
-                        //     ChilledSpawnTimeDelay = 500000 + ServerUtils.CurrentTimeMillis();
-                        //     if (!IsChilledSpawn)
-                        //     {
-                        //         IsChilledSpawn = true;
-                        //         int sbRandomZoneNum = ServerUtils.RandomNumber(0, 15);
-                        //         int sbRandomMapIndex = ServerUtils.RandomNumber(ChilledMaps.Count);
-                        //         int sbRandomMap = ChilledMaps[sbRandomMapIndex];
-                        //         var zone = MapManager.Get(sbRandomMap)?.GetZoneById(sbRandomZoneNum);
-                        //         if (zone != null)
-                        //         {
-                        //             Chilled = new Boss();
-                        //             Chilled.CreateBoss(DataCache.BOSS_CHILLED_TYPE);
-                        //             Chilled.CharacterHandler.SetUpInfo();
-                        //             zone.ZoneHandler.AddBoss(Chilled);
-                        //             ChilledId = Chilled.Id;
-                        //             IsChilledSpawn = true;
-                        //             ClientManager.Gi().SendMessageCharacter(Service.ServerChat("BOSS Chilled " + ChilledId + " vừa xuất hiện tại " + zone.Map.TileMap.Name ));
-                        //             IsChilledNotify = true;
-                        //         }
-                        //     }
-                        //     else if (!IsChilledNotify && Chilled != null && ChilledId != -1)
-                        //     {
-                        //         ClientManager.Gi().SendMessageCharacter(Service.ServerChat("BOSS Chilled " + ChilledId + " vừa xuất hiện tại " + Chilled.Zone.Map.TileMap.Name));
-                        //         IsChilledNotify = true;
-                        //     }
-                        //     // Get Random Map
-                        // } 
-                        // else 
-                        // {
-                        //     IsChilledNotify = false;
-                        // }
+                        if ((ChilledSpawnTimeDelay < ServerUtils.CurrentTimeMillis()))
+                        {
+                            ChilledSpawnTimeDelay = 500000 + ServerUtils.CurrentTimeMillis();
+                            if (!IsChilledSpawn)
+                            {
+                                IsChilledSpawn = true;
+                                int sbRandomZoneNum = ServerUtils.RandomNumber(0, 15);
+                                int sbRandomMapIndex = ServerUtils.RandomNumber(ChilledMaps.Count);
+                                int sbRandomMap = ChilledMaps[sbRandomMapIndex];
+                                var zone = MapManager.Get(sbRandomMap)?.GetZoneById(sbRandomZoneNum);
+                                if (zone != null)
+                                {
+                                    Chilled = new Boss();
+                                    Chilled.CreateBoss(DataCache.BOSS_CHILLED_TYPE);
+                                    Chilled.CharacterHandler.SetUpInfo();
+                                    zone.ZoneHandler.AddBoss(Chilled);
+                                    ChilledId = Chilled.Id;
+                                    IsChilledSpawn = true;
+                                    ClientManager.Gi().SendMessageCharacter(Service.ServerChat("BOSS Chilled " + ChilledId + " vừa xuất hiện tại " + zone.Map.TileMap.Name));
+                                    IsChilledNotify = true;
+                                }
+                            }
+                            else if (!IsChilledNotify && Chilled != null && ChilledId != -1)
+                            {
+                                ClientManager.Gi().SendMessageCharacter(Service.ServerChat("BOSS Chilled " + ChilledId + " vừa xuất hiện tại " + Chilled.Zone.Map.TileMap.Name));
+                                IsChilledNotify = true;
+                            }
+                            // Get Random Map
+                        }
+                        else
+                        {
+                            IsChilledNotify = false;
+                        }
 
                         #endregion
 
+
+                        #region bill
+
+                        if ((BillSpawnTimeDelay < ServerUtils.CurrentTimeMillis()))
+                        {
+                            BillSpawnTimeDelay = 500000 + ServerUtils.CurrentTimeMillis();
+                            if (!IsChilledSpawn)
+                            {
+                                IsBillSpawn = true;
+                                int sbRandomZoneNum = ServerUtils.RandomNumber(0, 15);
+                                int sbRandomMapIndex = ServerUtils.RandomNumber(BillMaps.Count);
+                                int sbRandomMap = BillMaps[sbRandomMapIndex];
+                                var zone = MapManager.Get(sbRandomMap)?.GetZoneById(sbRandomZoneNum);
+                                CurrentBillMapId = sbRandomMap;
+                                CurrentBillZoneId = sbRandomZoneNum;
+                                if (zone != null)
+                                {
+                                    Billed = new Boss();
+                                    Billed.CreateBoss(DataCache.BOSS_BILL_TYPE);
+                                    Billed.CharacterHandler.SetUpInfo();
+                                    zone.ZoneHandler.AddBoss(Billed);
+                                    BillId = Billed.Id;                                  
+                                    ClientManager.Gi().SendMessageCharacter(Service.ServerChat("BOSS Bill " + Billed + " vừa xuất hiện tại " + zone.Map.TileMap.Name));
+                                    IsBillNotify = true;
+                                }
+                            }
+                            else if (!IsBillNotify && Billed != null && BillId != -1)
+                            {
+                                ClientManager.Gi().SendMessageCharacter(Service.ServerChat("BOSS Bill " + Billed + " vừa xuất hiện tại " + Billed.Zone.Map.TileMap.Name));
+                                IsBillNotify = true;
+                            }
+                            // Get Random Map
+                        }
+                        else
+                        {
+                            IsChilledNotify = false;
+                        }
+                        #endregion
                     }
                     catch (Exception e)
                     {
@@ -754,6 +832,35 @@ namespace NRO_Server.Application.Threading
             catch (Exception e)
             {
                 Server.Gi().Logger.Error($"Error SpawnFideBoss in BossRunTime.cs: {e.Message} \n {e.StackTrace}", e);
+            }
+        }
+
+        public void SpawnAngelBoss(int type)
+        {
+            try
+            {
+                if (type == 1)
+                {
+                    IsWhisSpawn = true;
+                    var zone = MapManager.Get(CurrentBillMapId)?.GetZoneById(CurrentBillZoneId);
+                    if (zone != null)
+                    {
+                        whis = new Boss();
+                        whis.CreateBoss(DataCache.BOSS_WHIS_TYPE);
+                        whis.CharacterHandler.SetUpInfo();
+                        zone.ZoneHandler.AddBoss(whis);
+                        WhisId = whis.Id;
+                        IsWhisNotify = true;
+                        IsWhisSpawn = true;
+                        ClientManager.Gi().SendMessageCharacter(Service.ServerChat("BOSS Whis " + WhisId + " vừa xuất hiện tại " + zone.Map.TileMap.Name));
+                        Server.Gi().Logger.Print("Whis ...: Map " + zone.Map.TileMap.Name);
+                    }
+                }
+                
+            }
+            catch (Exception e)
+            {
+                Server.Gi().Logger.Error($"Error SpawnAngel in BossRunTime.cs: {e.Message} \n {e.StackTrace}", e);
             }
         }
     }

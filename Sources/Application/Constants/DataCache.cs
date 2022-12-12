@@ -124,6 +124,8 @@ namespace NRO_Server.Application.Constants
         public static List<short> ListDoThanLinh = new List<short>() { 555, 556, 557, 558, 559, 560, 561, 563, 565, 567, 562, 566, 555, 556, 564, 557, 558, 559, 560, 563, 565, 567 };
         public static List<short> ListDoHiem = new List<short>() { 241, 253, 265, 277, 233, 245, 257, 269, 237, 249, 261, 273 };
         public static List<short> ListThucAn = new List<short>() { 663, 664, 665, 666, 667 };
+        public static List<short> ListNgocRong = new List<short>() { 14, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20};
+        public static List<short> ListNgocRongVip = new List<short>() {14,15, 15, 15, 16 ,16 ,16 ,16 ,16 ,16};
 
         public static List<short> ListPetD = new List<short>(){
                 892,//Thỏ xám
@@ -288,6 +290,8 @@ namespace NRO_Server.Application.Constants
         public static readonly int BOSS_THO_PHE_CO_TYPE = 12;
         public static readonly int BOSS_THO_DAI_CA_TYPE = 13;
         public static readonly int BOSS_CHILLED_TYPE = 14;
+        public static readonly int BOSS_BILL_TYPE = 15;
+        public static readonly int BOSS_WHIS_TYPE = 16;
         public static readonly int BASE_BOSS_ID = 1;
         public static readonly int MAX_BASE_BOSS_ID = 9999;
 
